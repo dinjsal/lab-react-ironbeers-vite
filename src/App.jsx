@@ -5,11 +5,12 @@ import AllBeersPage from '/src/pages/AllBeersPage'
 import RandomBeerPage from '/src/pages/RandomBeerPage'
 import AddBeerPage from '/src/pages/AddBeerPage'
 import BeerDetailsPage from '/src/pages/BeerDetailsPage'
+import Navbar from '/src/components/Navbar'
 
 function App() {
   return (
     <div className="App">
-      <h1>LAB | React IronBeers</h1>
+      <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/beers' element={<AllBeersPage />} />
