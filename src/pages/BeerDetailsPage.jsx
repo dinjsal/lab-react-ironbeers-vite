@@ -1,3 +1,9 @@
-function BeerDetailsPage() {}
+import React from 'react'
 
-export default BeerDetailsPage;
+function BeerDetailsPage() {
+  return (
+    <div>BeerDetailsPage</div>
+  )
+}
+
+export default BeerDetailsPage
