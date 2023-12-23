@@ -24,7 +24,7 @@ function ProjectDetailsPage (props) {
  
   
   return (
-    <div className="beerDetails">
+    <div className="beer-details">
 
     {!beerDetails && (
         <img 
@@ -35,6 +35,7 @@ function ProjectDetailsPage (props) {
 
       {beerDetails && (
         <>
+          <br />
           <img 
           src={beerDetails.image_url} 
           alt={beerDetails.name}

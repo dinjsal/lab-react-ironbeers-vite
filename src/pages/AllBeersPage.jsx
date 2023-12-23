@@ -22,22 +22,18 @@ function AllBeersPage() {
     })
   }, [])
 
-    //not working heehee
-
   return (
-    <div key={beers._id} className="align-self-center">
+    <div className="align-self-center">
     {beers.map((oneBeer) => {
-       
-       //not working heehee
-       {!beers && (
-        <img 
-          src={loadingGif} 
-          alt="loading-gif" 
-          style={{height: "15%"}} />
-      )}
-
+        {/* not working heehee */}
+        {!beers && (
+          <img 
+            src={loadingGif} 
+            alt="loading-gif" 
+            style={{height: "15%"}} />
+        )}
       return (
-        <div className="mapped-beers align-self">
+        <div className="mapped-beers align-self" key={oneBeer._id} >
           <img className="beer-img"
           src={oneBeer.image_url} 
           alt={oneBeer.name}

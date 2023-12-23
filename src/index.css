@@ -82,14 +82,13 @@ form {
   margin-bottom: 20px;
 }
 
-.beerDetails {
+.beer-details {
   display: flex;
   flex-direction: column;
   line-height: 1;
-  text-align: justify;
+  text-align: center;
   justify-content: center;
   align-items: center;
-
 }
 
 .all-beers:hover {
@@ -98,4 +97,5 @@ form {
 
 .beer-name:hover {
   background-color: rgba(0, 96, 128, 0.6);
+  font-weight: bold;
 }
