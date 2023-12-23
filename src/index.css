@@ -99,3 +99,11 @@ form {
   background-color: rgba(0, 96, 128, 0.6);
   font-weight: bold;
 }
+
+.form-group {
+  margin: 0 auto 1.5rem auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
