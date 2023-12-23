@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 function AllBeersPage() {
   const [beers, setBeers] = useState([]);
 
+  const loadingGif = 'https://www.padisciplinaryboard.org/Themes/DisciplinaryBoard/Assets/images/loading.gif'
+
   useEffect(() => {
     axios
     .get('https://ih-beers-api2.herokuapp.com/beers')
@@ -20,22 +22,30 @@ function AllBeersPage() {
     })
   }, [])
 
+    //not working heehee
+
   return (
     <div key={beers._id} className="align-self-center">
     {beers.map((oneBeer) => {
-      if (!oneBeer) {
-        return <p>Loading...</p>
-      }
+       
+       //not working heehee
+       {!beers && (
+        <img 
+          src={loadingGif} 
+          alt="loading-gif" 
+          style={{height: "15%"}} />
+      )}
+
       return (
         <div className="mapped-beers align-self">
-          <img 
+          <img className="beer-img"
           src={oneBeer.image_url} 
           alt={oneBeer.name}
           style={{maxHeight: "200px"}} />
           <Link to={`/beers/${oneBeer._id}`}>
-          <p className="homepage-text"><h2>{oneBeer.name}</h2></p>
+          <h2><p className="homepage-text">{oneBeer.name}</p></h2>
           </Link>
-          <p style={{fontSize: "18px", color: 'purple'}}>{oneBeer.tagline}</p>
+          <p style={{fontSize: "18px"}}>{oneBeer.tagline}</p>
           <p style={{fontSize: "14px"}}><span style={{fontWeight: "bold"}}>Created by:</span> {oneBeer.contributed_by}</p>
         </div>
       )
