@@ -2,10 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import SearchBar from '../components/SearchBar';
 
 function AllBeersPage() {
   const [beers, setBeers] = useState([]);
-
+  const [titleFilter, setTitleFilter] = useState('');
+  const [beersFiltered, setBeersFiltered] = useState([...beers]);
+  
   const loadingGif = 'https://www.padisciplinaryboard.org/Themes/DisciplinaryBoard/Assets/images/loading.gif'
 
   useEffect(() => {
@@ -22,8 +25,24 @@ function AllBeersPage() {
     })
   }, [])
 
+  useEffect(() => {
+    const newFilteredBeers = axios
+    .get(`https://ih-beers-api2.herokuapp.com/beers/search?q=${titleFilter}`)
+    .then((response) => {
+        console.log(response.data);
+        if (response.status === 200) {
+        setBeersFiltered(newFilteredBeers);
+        // console.log(newFilteredBeers)
+        }
+    })
+    .catch ((err) => {
+        console.log('Error is:', err);
+    })
+}, [titleFilter, beers])
+
   return (
     <div className="align-self-center">
+    <SearchBar titleFilter={titleFilter} setTitleFilter={setTitleFilter}/>
     {beers.map((oneBeer) => {
         {/* not working heehee */}
         {!beers && (
